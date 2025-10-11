@@ -6,3 +6,7 @@ import {API_ROUTE} from "@/lib/routes/api.route";
 export const login = async (data : z.infer<typeof loginSchema>) => {
     return api.post(API_ROUTE.auth.login(), data)
 }
+
+export const register = async (data: z.infer<typeof registerSchema>) => {
+    return api.post(API_ROUTE.auth.register(), data);
+}
