@@ -5,6 +5,7 @@ import LoginBg from "../../../../public/statics/gradient.png";
 import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import Link from "next/link";
+
 import {useRegister} from "@/entities/auth/hooks/useRegister";
 
 interface Props {
