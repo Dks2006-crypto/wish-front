@@ -1,10 +1,8 @@
 "use client"
 import React from "react";
 import {Label} from "@/components/ui/label";
-import Image from "next/image";
 import Link from "next/link";
 
-import LoginBg from '../../../../public/statics/gradient.png'
 import {Input} from "@/components/ui/input";
 
 import {useLogin} from "@/entities/auth/hooks/useLogin";
@@ -16,13 +14,10 @@ interface Props {
 
 }
 
-export const loginFormUi: React.FC<Props> = ({ className, registerUrl, label = 'Заголовок' }) => {
+export const LoginFormUi: React.FC<Props> = ({ className, registerUrl, label = 'Заголовок' }) => {
     const {register, handleSubmit, onSubmit, errors, isSubmitting} = useLogin()
     return (    
         <div className={`${className} flex items-stretch flex-col sm:flex-row overflow-hidden bg-zinc-800 rounded-lg`}>
-            <div className="flex-1 self-stretch " id="form-bg">
-                <Image className="w-full h-full object-cover" src={LoginBg} alt={"Форма авторизации"} />
-            </div>
             <form onSubmit={handleSubmit(onSubmit)} className="p-5 flex-1 grid gap-y-4">
                 <div className="items-center sm:text-3xl text-xl text-white font-medium " id='form-headering'>{label}</div>
                 <div className="w-full grid gap-y-2" id="form-group-1">
@@ -33,8 +28,22 @@ export const loginFormUi: React.FC<Props> = ({ className, registerUrl, label = '
                     )}
                 </div>
                 <div className="w-full grid gap-y-2" id="form-group-2">
+                    <Label htmlFor="surName">Фамилия</Label>
+                    <Input {...register('surName')} type="text" id="surName" placeholder="Введите фамилию" />
+                    {errors.surName && (
+                        <span className="text-red-600">{errors.surName.message}</span>
+                    )}
+                </div>
+                <div className="w-full grid gap-y-2" id="form-group-3">
+                    <Label htmlFor="name">Имя</Label>
+                    <Input {...register('name')} type="text" id="name" placeholder="Ваше имя" />
+                    {errors.name && (
+                        <span className="text-red-600">{errors.name.message}</span>
+                    )}
+                </div>
+                <div className="w-full grid gap-y-2" id="form-group-4">
                     <Label htmlFor="password">Пароль</Label>
-                    <Input {...register('password')} type="password" id="password" placeholder="вввединетете парпоапро" />
+                    <Input {...register('password')} type="password" id="password" placeholder="Введите пароль" />
                     {errors.password && (
                         <span className="text-red-600">{errors.password.message}</span>
                     )}

@@ -15,4 +15,11 @@ export const API_ROUTE = {
         edit: (id: string | number) => API_ROUTE.root('/tasks/' + id),
         delete: (id: string | number) => API_ROUTE.root('/tasks/' + id),
     },
+    whishes: {
+        index: () => API_ROUTE.root('/whishes'),
+        show: (id: string | number) => API_ROUTE.root('/whishes/' + id),
+        create: () => API_ROUTE.root('/whishes'),
+        update: (id: string ) => API_ROUTE.root(`/whishes/${id}`),
+        delete: (id: string | number) => API_ROUTE.root('/whishes/' + id),
+    },
 };
