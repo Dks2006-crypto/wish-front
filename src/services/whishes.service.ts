@@ -5,6 +5,7 @@ import {z} from "zod";
 import {createWhichSchema} from "@/entities/whishes/schemas/whishes.schema";
 import {Whish} from "@/entities/whishes";
 
+//Получение списка всех желаний
 export const getAll =  async (): Promise<Whish[]> => {
     const response = await api.get(API_ROUTE.whishes.index(), {
         headers: await getAuthHeaders(),
@@ -12,6 +13,7 @@ export const getAll =  async (): Promise<Whish[]> => {
     return response.data;
 };
 
+//Получение одного желания
 export const getOne = async (id: string): Promise<Whish> => {
     const response = await api.get(API_ROUTE.whishes.show(id), {
         headers: await getAuthHeaders(),
@@ -19,12 +21,14 @@ export const getOne = async (id: string): Promise<Whish> => {
     return response.data;
 };
 
+//Создание нового желания
 export const create = async(data: z.infer<typeof createWhichSchema> ): Promise<Whish> => {
     return api.post(API_ROUTE.whishes.create(), data, {
         headers: await getAuthHeaders(),
     });
 }
 
+//Обновление существующего желания
 export const update = async (id: string, data: z.infer<typeof createWhichSchema>): Promise<Whish> => {
     try {
         const response = await api.patch(API_ROUTE.whishes.update(id), data, {
@@ -37,6 +41,7 @@ export const update = async (id: string, data: z.infer<typeof createWhichSchema>
     }
 };
 
+//Удаление желания
 export const remove = async (id: string): Promise<void> => {
     try {
         await api.delete(API_ROUTE.whishes.delete(id), {

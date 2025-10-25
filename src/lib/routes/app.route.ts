@@ -2,17 +2,13 @@ export const APP_ROUTE = {
     root: (path: string | "") => path,
     home: () => APP_ROUTE.root('/'),
 
+    //Маршруты для аутентификации
     auth: {
-
         login: () => APP_ROUTE.root('/login'),
         register: () => APP_ROUTE.root('/register'),
     },
-    tasks: {
-        index: () => APP_ROUTE.root('/dashboard/tasks'),
-        show: (id: string) => APP_ROUTE.root('/dashboard/tasks/' + id),
-        create: () => APP_ROUTE.root('/dashboard/tasks/create'),
-    },
 
+    //Маршруты для работы с желаниями в dachboard
     whishes: {
         index: () => APP_ROUTE.root('/dashboard/whishes'),
         show: (id: string) => APP_ROUTE.root('/dashboard/whishes/' + id),

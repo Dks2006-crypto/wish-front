@@ -7,6 +7,7 @@ interface Props {
     className?: string;
 }
 
+//Меню аутентификации
 export const AuthUi: React.FC<Props> = ({ data, className }) => {
     return(
         <div className={`${className} `}>

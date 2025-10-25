@@ -4,7 +4,10 @@ import {APP_ROUTE} from "@/lib/routes/app.route";
 import {Container} from "@/components/ui/container";
 import {Table} from "@/entities/whishes";
 
+{/* Страница всех желаний */}
+
 export default async function WhishesPage () {
+    {/* Вызов всех желаний */}
     const whishes = await getAll();
     return (
         <div>

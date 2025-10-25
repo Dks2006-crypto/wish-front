@@ -7,6 +7,7 @@ interface Props {
     className?: string;
 }
 
+//Компонент навигации
 export const NavigationUi: React.FC<Props> = ({ data = [], className }) => {
 
     return (

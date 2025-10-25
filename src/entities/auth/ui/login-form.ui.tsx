@@ -7,6 +7,8 @@ import {Input} from "@/components/ui/input";
 
 import {useLogin} from "@/entities/auth/hooks/useLogin";
 
+//Форма входа пользователя
+
 interface Props {
     className?: string;
     registerUrl?: string;
@@ -15,40 +17,59 @@ interface Props {
 }
 
 export const LoginFormUi: React.FC<Props> = ({ className, registerUrl, label = 'Заголовок' }) => {
+    {/* Выхов хука для входа */}
     const {register, handleSubmit, onSubmit, errors, isSubmitting} = useLogin()
     return (    
         <div className={`${className} flex items-stretch flex-col sm:flex-row overflow-hidden bg-zinc-800 rounded-lg`}>
             <form onSubmit={handleSubmit(onSubmit)} className="p-5 flex-1 grid gap-y-4">
                 <div className="items-center sm:text-3xl text-xl text-white font-medium " id='form-headering'>{label}</div>
                 <div className="w-full grid gap-y-2" id="form-group-1">
+
+                    {/* Ввод электронной почты */}
                     <Label htmlFor="email">E-mail</Label>
                     <Input {...register('email')} type="email" id="email" placeholder="user@mamyebal" />
+
+                    {/* Проверка корректности почты */}
                     {errors.email && (
                         <span className="text-red-600">{errors.email.message}</span>
                     )}
                 </div>
                 <div className="w-full grid gap-y-2" id="form-group-2">
+
+                    {/* Фамилия */}
                     <Label htmlFor="surName">Фамилия</Label>
                     <Input {...register('surName')} type="text" id="surName" placeholder="Введите фамилию" />
+
+                    {/* Корректность фамилия */}
                     {errors.surName && (
                         <span className="text-red-600">{errors.surName.message}</span>
                     )}
                 </div>
                 <div className="w-full grid gap-y-2" id="form-group-3">
+
+                    {/* Имя */}
                     <Label htmlFor="name">Имя</Label>
                     <Input {...register('name')} type="text" id="name" placeholder="Ваше имя" />
+
+                    {/* Корректность имени */}
                     {errors.name && (
                         <span className="text-red-600">{errors.name.message}</span>
                     )}
                 </div>
                 <div className="w-full grid gap-y-2" id="form-group-4">
+
+                    {/* Пароль */}
                     <Label htmlFor="password">Пароль</Label>
                     <Input {...register('password')} type="password" id="password" placeholder="Введите пароль" />
+
+                    {/* Корректность пароля */}
                     {errors.password && (
                         <span className="text-red-600">{errors.password.message}</span>
                     )}
                 </div>
                 <div className="pt-5 w-full grid gap-y-4" id="form-group-3">
+
+                    {/* Кнопка отправки формы */}
                     <button className="px-3 h-12 font-medium text-gray-500 bg-gray-100 rounded-full cursor-pointer">{isSubmitting ? "Ожидайте" : "Вход"}</button>
                     <Link href={String(registerUrl)} className="text-gray-400 transition-colors hover:text-white">Зарегистрироваться</Link>
                 </div>

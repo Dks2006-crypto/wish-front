@@ -50,7 +50,7 @@ export default async function SinglePage({ params }: Props) {
                 {/* Кнопка назад */}
                 <div className="mb-6">
                     <Link
-                        href="/whishes"
+                        href={APP_ROUTE.whishes.index()}
                         className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 transition-colors mb-4 px-4 py-2 rounded-lg hover:bg-blue-50"
                     >
                         <ArrowLeft className="w-4 h-4" />
@@ -119,19 +119,9 @@ export default async function SinglePage({ params }: Props) {
                                 </div>
                             )}
 
-                            {/* Мета-информация */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-700">
-                                <div className="flex items-center gap-3 text-gray-400">
-                                    <User className="w-5 h-5" />
-                                    <div>
-                                        <div className="text-sm">Автор</div>
-                                        <div className="text-white font-medium">{whish.user.name}</div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
-                        {/* Футер с действиями */}
+                        {/* Футер */}
                         <div className="p-6 bg-gray-800 border-t border-gray-700">
                             <div className="flex flex-wrap gap-3">
                                 <Link
@@ -155,6 +145,7 @@ export default async function SinglePage({ params }: Props) {
                         </div>
                     </div>
 
+                    {/* Приоритет */}
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="bg-gray-800 rounded-lg p-4 text-center border border-gray-700">
                             <div className="text-2xl font-bold text-white mb-1">
@@ -164,6 +155,7 @@ export default async function SinglePage({ params }: Props) {
                             <div className="text-white font-medium">{getPriorityText(whish.priority)}</div>
                         </div>
 
+                        {/* Статус */}
                         <div className="bg-gray-800 rounded-lg p-4 text-center border border-gray-700">
                             <div className="text-2xl font-bold text-white mb-1">
                                 {whish.completed ? "🎉" : "⏳"}

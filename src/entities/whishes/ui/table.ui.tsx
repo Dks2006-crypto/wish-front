@@ -3,6 +3,8 @@ import Link from "next/link";
 import { APP_ROUTE } from "@/lib/routes/app.route";
 import { Whish } from "@/entities/whishes";
 
+//Все желания
+
 interface Props {
     className?: string;
     data: Whish[];
@@ -17,6 +19,7 @@ export const TableUi: React.FC<Props> = ({ className, data }) => {
         );
     }
 
+    {/* Определение цвета приоритета */}
     const getPriorityColor = (priority: string) => {
         switch (priority) {
             case "HIGH":
@@ -30,12 +33,14 @@ export const TableUi: React.FC<Props> = ({ className, data }) => {
         }
     };
 
+    {/* Определение цвета статуса */}
     const getStatusColor = (completed: boolean) => {
         return completed
             ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
             : "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
     };
 
+    {/* Перевод приоритета */}
     const getPriorityText = (priority: string) => {
         switch (priority) {
             case "HIGH":
@@ -49,6 +54,7 @@ export const TableUi: React.FC<Props> = ({ className, data }) => {
         }
     };
 
+    {/* Перевод статуса */}
     const getStatusText = (completed: boolean) => {
         return completed ? "Куплено" : "Активно";
     };
@@ -56,6 +62,7 @@ export const TableUi: React.FC<Props> = ({ className, data }) => {
     return (
         <div className={className}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Вызов желаний из базы данных */}
                 {data.map((item) => (
                     <div
                         key={item.id}

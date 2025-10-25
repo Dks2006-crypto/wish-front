@@ -4,12 +4,16 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {useCreate} from "@/entities/whishes/hooks/useCreate";
 
+//ФОрма создания желания
+
 interface Props {
     label?: string;
     className?: string;
 }
 
 export const CreateFormUi: React.FC<Props> = ({ label = "Форма создания", className }) => {
+
+    {/* Выхов хука для создания желания */}
     const { register, handleSubmit, errors, isSubmitting, onSubmit } = useCreate();
     return (
         <div className={`${className} p-5 sm:p-10 w-full bg-zinc-800 rounded-lg`}>

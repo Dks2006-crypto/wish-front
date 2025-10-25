@@ -3,11 +3,13 @@ import {APP_ROUTE} from "@/lib/routes/app.route";
 
 console.log('APP_ROUTE:', APP_ROUTE);
 
+//Данные для меню навигации
 export const  MENU_DATA: IMenu[] =[
     { label: "Главная", href: APP_ROUTE.home() },
     { label: "Желания", href: APP_ROUTE.whishes.index() },
 ];
 
+//Даннык для меню аутентификации
 export const AUTH_DATA: IMenu[] = [
     {
         label: "Войти",

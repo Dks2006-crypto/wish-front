@@ -5,6 +5,7 @@ interface Props {
     className?: string;
 }
 
+//Лого хедера
 export const LogoUi: React.FC<Props> = ({ name = "Название сайта", className }) => {
     return (
         <div className={`${className} `}>
