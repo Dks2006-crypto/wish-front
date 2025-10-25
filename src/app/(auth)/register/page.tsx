@@ -8,7 +8,7 @@ export  default function RegisterPage() {
         <div className="w-full h-screen flex items-center justify-center">
             <Container className="w-full">
                 {/* Форма регистрации */}
-                <RegisterForm label="Регистрация" loginUrl={APP_ROUTE.auth.register()}/>
+                <RegisterForm label="Регистрация" loginUrl={APP_ROUTE.auth.login()}/>
             </Container>
         </div>
     )
